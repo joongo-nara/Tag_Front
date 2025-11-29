@@ -1,0 +1,160 @@
+/* 전체 페이지 컨테이너 */
+.submit-container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 카드 공통 스타일 */
+.submit-card {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 40px;
+  padding: 50px; /* 내부 여백 통일 */
+  border: 1px solid #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 양쪽 끝으로 벌리기 */
+  gap: 40px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+
+/* 1. 택배 보내기 (진한 초록) */
+.card-delivery {
+  background-color: #2cb597;
+}
+
+/* [핵심] 택배 텍스트: 오른쪽 정렬 */
+.card-delivery .card-text-area {
+  text-align: right;
+  align-items: flex-end; /* 텍스트 박스 자체를 오른쪽으로 */
+}
+
+/* 2. 수거 요청하기 (연한 초록) */
+.card-pickup {
+  background-color: #48c896;
+}
+
+/* [핵심] 수거 텍스트: 왼쪽 정렬 */
+.card-pickup .card-text-area {
+  text-align: left;
+  align-items: flex-start; /* 텍스트 박스 자체를 왼쪽으로 */
+}
+
+/* 텍스트 영역 공통 */
+.card-text-area {
+  flex: 1; /* [중요] 너비 50% 차지 */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 이미지 영역 공통 */
+.card-image-area {
+  flex: 1; /* [중요] 너비 50% 차지 */
+  display: flex;
+  justify-content: center; /* 이미지 가운데 정렬 */
+  align-items: center;
+}
+
+/* 이미지 크기 제한 */
+.card-image-area img {
+  max-width: 80%; /* 영역 안에서 적당히 크게 */
+  max-height: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 폰트 스타일 */
+.card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.card-sub-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* 링크 스타일 (택배 카드 감싸는 녀석) */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+.card-link:hover .submit-card {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-pickup:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .submit-container {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+
+  .submit-card {
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  /* 모바일에서는 순서 재조정 (이미지 위, 텍스트 아래) */
+  .card-delivery {
+    flex-direction: column-reverse;
+  } /* 텍스트 아래로 */
+  .card-pickup {
+    flex-direction: column;
+  } /* 이미지 아래로? 아니, 보통 이미지 위가 좋음 */
+
+  /* 모바일에서 수거 카드의 이미지 순서를 위로 올리고 싶다면: */
+  .card-pickup {
+    flex-direction: column-reverse;
+  }
+
+  .card-delivery .card-text-area,
+  .card-pickup .card-text-area {
+    text-align: center;
+    align-items: center;
+  }
+}

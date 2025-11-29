@@ -1,0 +1,140 @@
+/* 전체 헤더 컨테이너 */
+.header-container {
+  background-color: #9affce; /* 민트색 배경 */
+  height: 80px;
+  width: 100%;
+
+  display: flex;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+  box-sizing: border-box;
+
+  /* [수정] 오른쪽 아래(4px 4px)로 향하는 그림자 추가 */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* 그림자가 다른 요소 위에 보이도록 */
+}
+
+/* 링크 기본 스타일 제거 */
+.header-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 1. 왼쪽: 로고 영역 */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* TaG 텍스트 스타일 */
+.header-title {
+  font-size: 28px; /* 로고니까 조금 더 크게 */
+  font-weight: 800; /* [수정] 아주 굵게 (Extra Bold) */
+  color: #000;
+  font-family: sans-serif;
+}
+
+/* 2. 중앙: 메뉴 영역 (정중앙 고정) */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-nav {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 각 메뉴 링크 스타일 */
+.header-nav a {
+  font-size: 20px;
+  font-weight: 700; /* [수정] 굵게 (Bold) 변경 */
+  color: #000;
+  white-space: nowrap;
+}
+
+/* 3. 오른쪽: 로그인 영역 */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.login-link {
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-weight: 700; /* [수정] 굵게 (Bold) 변경 */
+  font-size: 20px;
+}
+
+/* 프로필 아이콘 스타일 */
+.profile-icon {
+  font-size: 36px;
+  margin-right: 8px;
+  stroke-width: 10px; /* 아이콘 선도 살짝 굵어 보이게 */
+}
+/* ... (위쪽 코드는 그대로 유지) ... */
+
+/* 중앙 메뉴 영역 */
+.header-nav {
+  display: flex;
+  gap: 30px; /* 버튼 배경이 생기니까 간격을 조금 좁혀도 됨 (50 -> 30) */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 1. 기본 메뉴 링크 스타일 */
+.header-nav a {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+
+  /* 애니메이션 효과 */
+  transition: all 0.3s ease;
+
+  /* 여백 확보 (배경색 입힐 때 텍스트가 안 잘리게) */
+  padding: 10px 20px;
+  border-radius: 30px; /* 둥근 알약 모양 */
+}
+
+/* 2. [핵심] 현재 페이지에 있을 때 적용될 스타일 (.active) */
+.header-nav a.active {
+  background-color: #ffffff; /* 하얀색 배경 */
+  color: #000000; /* 글자 검은색 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+}
+
+/* (선택) 마우스 올렸을 때 효과 */
+.header-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* 반투명 흰색 */
+}
+
+/* 1. 왼쪽: 로고 영역 */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* [수정] 로고 이미지 스타일 */
+.header-logo-img {
+  height: 50px; /* 헤더 높이(80px)에 맞춰 적당한 크기로 설정 */
+  width: auto; /* 비율 유지 */
+  object-fit: contain; /* 찌그러짐 방지 */
+  cursor: pointer;
+}
+
+/* (기존 .header-title 스타일은 삭제하셔도 됩니다) */
+
+/* ... 나머지 코드 유지 ... */

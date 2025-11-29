@@ -1,0 +1,196 @@
+/* 전체 배경 (스크롤 방지) */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 화면 꽉 채우기 */
+  background-color: #f7f8fa;
+  overflow: hidden; /* 스크롤바 강제 제거 */
+}
+
+/* 회원가입 박스 (컴팩트하게) */
+.signup-container {
+  width: 450px;
+  /* 위아래 패딩을 줄여서 높이 확보 */
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* 로고 및 부제목 */
+.signup-logo {
+  font-size: 32px; /* 살짝 줄임 */
+  font-weight: 800;
+  color: #48c896;
+  margin-bottom: 5px; /* 간격 줄임 */
+}
+
+.signup-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px; /* 간격 줄임 */
+}
+
+/* 폼 스타일 */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 인풋 사이 간격 줄임 */
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* 인풋 필드 공통 (높이 축소) */
+.input-field {
+  width: 100%;
+  padding: 12px; /* 패딩 줄임 */
+  font-size: 15px; /* 글자 크기 살짝 줄임 */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #48c896;
+}
+
+/* 이메일 입력 그룹 */
+.email-input-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.email-id,
+.email-domain {
+  flex: 1;
+  min-width: 0;
+}
+
+.email-at {
+  color: #888;
+  font-weight: bold;
+  padding: 0 2px;
+}
+
+.email-select {
+  width: 90px;
+  height: 44px; /* 인풋 높이에 맞춤 */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* 에러 메시지 */
+.error-message {
+  color: #e53e3e;
+  font-size: 12px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+/* 가입 버튼 */
+.signup-button {
+  width: 100%;
+  padding: 12px; /* 패딩 줄임 */
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #48c896;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5px; /* 간격 줄임 */
+  transition: background-color 0.2s;
+}
+
+.signup-button:hover {
+  background-color: #3aa87e;
+}
+
+/* 하단 링크 */
+.link-container {
+  margin-top: 15px; /* 간격 줄임 */
+  font-size: 13px;
+  color: #888;
+}
+
+.link-container a {
+  color: #48c896;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.link-container a:hover {
+  text-decoration: underline;
+}
+
+/* 소셜 로그인 영역 */
+.social-divider {
+  margin: 20px 0 15px 0; /* 간격 줄임 */
+  position: relative;
+  text-align: center;
+}
+
+.social-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+  z-index: 0;
+}
+
+.social-divider span {
+  position: relative;
+  background-color: white;
+  padding: 0 15px;
+  color: #999;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.social-login-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  width: 45px; /* 크기 살짝 줄임 */
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  transition: transform 0.2s;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+.social-btn.kakao {
+  background-color: #fee500;
+  color: #3c1e1e;
+}
+.social-btn.google {
+  background-color: white;
+  border: 1px solid #ddd;
+}

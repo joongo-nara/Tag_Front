@@ -1,0 +1,28 @@
+/* src/index.css */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* 기본 마진 제거 및 화면 꽉 채우기 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  display: block; /* Vite 기본값인 flex를 해제 */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* 리액트 최상위 컨테이너도 꽉 차게 */
+#root {
+  width: 100%;
+  max-width: 100%; /* 너비 제한 해제 */
+  margin: 0;
+  padding: 0;
+  text-align: left; /* 중앙 정렬 해제 */
+}
+
+html {
+  scroll-behavior: smooth; /* 스크롤 부드럽게 만들기 */
+}

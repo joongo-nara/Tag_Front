@@ -1,0 +1,144 @@
+/* 전체 컨테이너 */
+.guide-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* 상단 여백을 좀 더 줘서 헤더랑 겹치지 않게 */
+  padding: 60px 20px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  min-height: calc(100vh - 80px);
+}
+
+/* (메인 타이틀 .guide-hero 스타일 삭제됨) */
+
+/* 가이드 섹션 공통 */
+.guide-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* 섹션 제목 (조금 더 강조) */
+.section-title {
+  font-size: 32px; /* 크기 키움 */
+  font-weight: 800;
+  color: #333;
+  margin: 0;
+  /* 제목 배경은 흰색 유지하거나 제거 */
+  padding: 10px 0; 
+}
+
+/* 3단계 스텝 그리드 */
+.steps-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* [핵심 수정] 개별 스텝 카드 */
+.step-card {
+  /* 배경을 민트색으로 변경! */
+  background-color: #9AFFCE; 
+  width: 280px;
+  height: 320px;
+  border-radius: 40px; /* 더 둥글게 */
+  padding: 30px;
+  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  /* 테두리 제거 */
+  border: none;
+  /* 그림자 살짝 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* 숫자 배지 (흰색으로 변경) */
+.step-number {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff; /* 흰색 */
+  opacity: 0.8;
+}
+
+/* [핵심 수정] 아이콘 박스 (흰색으로 변경하여 민트 배경과 대비) */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff; /* 흰색 배경 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  font-size: 36px;
+  color: #333; /* 아이콘 색상 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 아이콘에 살짝 입체감 */
+}
+
+/* 스텝 제목 */
+.step-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: #000;
+}
+
+/* 스텝 설명 */
+.step-card p {
+  font-size: 16px;
+  color: #333; /* 검은색에 가깝게 하여 가독성 확보 */
+  line-height: 1.5;
+  margin: 0;
+  word-break: keep-all;
+  font-weight: 500;
+}
+
+/* 화살표 (>) */
+.step-arrow {
+  font-size: 30px;
+  color: #ccc;
+  font-weight: bold;
+}
+
+/* 구분선 */
+.divider {
+  width: 100%;
+  height: 2px; /* 조금 더 두껍게 */
+  background-color: #f0f0f0;
+  margin: 30px 0;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 900px) {
+  .steps-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .step-arrow {
+    transform: rotate(90deg);
+  }
+}

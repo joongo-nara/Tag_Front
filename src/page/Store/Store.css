@@ -1,0 +1,344 @@
+/* 전체 컨테이너 */
+.store-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  min-height: calc(100vh - 80px);
+}
+
+/* --- 필터 헤더 영역 (초록색 박스) --- */
+.filter-header {
+  width: 100%;
+  background-color: #48C896; /* 진한 초록색 */
+  border-radius: 0 0 30px 30px;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 검색 Wrapper (History Dropdown 기준) */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 흰색 검색창 */
+.search-box-white {
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 검색창 그림자 */
+}
+
+.search-box-white .search-icon {
+  font-size: 24px;
+  color: #999;
+  margin-right: 15px;
+}
+
+.search-box-white .search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 18px;
+}
+
+/* 탭 버튼 */
+.filter-tabs {
+  display: flex;
+  gap: 30px;
+  padding-left: 10px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 5px 0;
+  font-family: sans-serif;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  color: #ffffff;
+  font-weight: 800;
+  border-bottom: 3px solid white;
+}
+
+/* --- 필터 옵션 패널 (흰색 박스) --- */
+.filter-panel {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 좌우 반반 분할 */
+.panel-content-split {
+  display: flex;
+  gap: 40px;
+}
+
+.panel-left {
+  flex: 1; /* 왼쪽 50% */
+}
+
+.panel-right {
+  flex: 1; /* 오른쪽 50% */
+  border-left: 1px solid #eee;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 패널 내부 타이틀 */
+.panel-title {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  color: #888;
+  font-weight: 600;
+}
+
+/* --- 체크박스 그리드 --- */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 배치 */
+  gap: 20px;
+  width: 100%;
+  max-width: 500px; /* 그룹 전체를 중앙에 모으기 위해 너비 제한 */
+  margin: 0 auto;
+}
+
+/* 체크박스 개별 */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  user-select: none;
+  /* [핵심] 체크박스 시작점을 왼쪽(start)으로 통일하여 수직 정렬 */
+  justify-self: start; 
+  width: 100%;
+}
+
+.custom-checkbox input { display: none; }
+
+.checkmark {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #000;
+  border-color: #000;
+}
+
+.custom-checkbox input:checked ~ .checkmark::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+}
+
+/* --- 최근 검색 기록 드롭다운 --- */
+.search-history-dropdown {
+  position: absolute;
+  top: 70px; /* 검색창 아래 위치 */
+  left: 40px;
+  right: 40px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.history-item:hover {
+  background-color: #f5f5f5;
+}
+
+.history-word {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.history-word:hover { color: #48C896; }
+.time-icon { color: #ccc; }
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.remove-btn:hover { color: #ff6b6b; }
+
+.empty-history {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+
+/* --- 상품 그리드 --- */
+.product-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.like-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.icon-heart-fill { font-size: 32px; color: red; }
+.icon-heart-empty { font-size: 32px; color: #ccc; }
+
+.product-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.product-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-info {
+  padding: 15px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.product-sizes {
+  font-size: 14px;
+  color: #888;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .filter-header { padding: 20px; }
+  
+  .panel-content-split {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .panel-right {
+    border-left: none;
+    border-top: 1px solid #eee;
+    padding-left: 0;
+    padding-top: 30px;
+  }
+}

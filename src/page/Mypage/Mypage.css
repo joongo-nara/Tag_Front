@@ -1,0 +1,323 @@
+/* 전체 레이아웃 */
+.mypage-container {
+  min-height: 100vh;
+  background-color: #f7f8fa;
+}
+
+.mypage-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  gap: 30px;
+}
+
+/* --- 사이드바 스타일 --- */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  height: fit-content; /* 내용물만큼만 높이 차지 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-group {
+  margin-bottom: 30px;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu-item {
+  padding: 12px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s;
+  margin-bottom: 5px;
+}
+
+.sidebar-menu-item:hover {
+  background-color: #f0fdf7;
+  color: #48c896;
+}
+
+.sidebar-menu-item.active {
+  background-color: #48c896;
+  color: white;
+  font-weight: 700;
+}
+
+/* --- 콘텐츠 영역 공통 --- */
+.mypage-content {
+  flex: 1;
+}
+
+.content-wrapper {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  min-height: 500px;
+}
+
+.content-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+/* --- [1] 마음함 스타일 --- */
+.wish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.wish-card {
+  border: 1px solid #eee;
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+}
+
+.wish-img-box {
+  width: 100%;
+  height: 150px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+}
+
+.wish-info p {
+  margin: 0;
+}
+.wish-name {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.wish-price {
+  font-weight: 700;
+}
+
+.wish-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+}
+.wish-btn.active {
+  color: red;
+}
+
+/* --- [2] 이용 내역 스타일 --- */
+.history-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.history-date {
+  color: #888;
+  font-size: 14px;
+}
+.history-desc {
+  font-weight: 600;
+  flex: 1;
+  margin-left: 20px;
+}
+.history-status {
+  font-weight: 700;
+  font-size: 14px;
+}
+.history-status.done {
+  color: #48c896;
+}
+.history-status.ongoing {
+  color: #ff9f43;
+}
+
+/* --- [3] 프로필 수정 스타일 --- */
+.profile-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-img-area {
+  align-self: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-img-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.camera-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #48c896;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+}
+
+.input-field {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-field.textarea {
+  height: 100px;
+  resize: none;
+}
+
+.save-btn {
+  background-color: #48c896;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* --- [4] 사이즈 설정 스타일 --- */
+.sub-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.size-select-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  padding: 10px 25px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.size-btn.active {
+  background-color: #48c896;
+  color: white;
+  border-color: #48c896;
+  font-weight: 700;
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 30px 0;
+}
+
+.desc-text {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.detail-size-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.size-input-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.size-input-item label {
+  font-size: 14px;
+  color: #555;
+}
+
+.size-input-item input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: right;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .mypage-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .wish-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .detail-size-grid {
+    grid-template-columns: 1fr;
+  }
+}
