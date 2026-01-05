@@ -9,8 +9,8 @@ const SubmitDelivery = () => {
 
   // 입력값 상태 관리
   const [images, setImages] = useState([]);
-  const [weight, setWeight] = useState(''); // 무게
-  const [price, setPrice] = useState(''); // 금액
+  const [weight, setWeight] = useState('');
+  const [priceRequest, setPriceRequest] = useState(''); // price -> priceRequest (DB 컬럼 price_request)
 
   // 사진 첨부 함수
   const handleImageChange = (e) => {
@@ -43,8 +43,8 @@ const SubmitDelivery = () => {
       return;
     }
 
-    // 2. 금액 입력 확인
-    if (!price.trim()) {
+    // 2. 금액 입력 확인 (price -> priceRequest)
+    if (!priceRequest.trim()) {
       alert('금액을 입력해주세요.');
       return;
     }
@@ -129,8 +129,8 @@ const SubmitDelivery = () => {
               type='text'
               placeholder='택배 배송 금액을 입력하세요.'
               className='input-box'
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              value={priceRequest}
+              onChange={(e) => setPriceRequest(e.target.value)}
             />
           </div>
         </div>

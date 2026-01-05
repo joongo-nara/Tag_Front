@@ -20,7 +20,7 @@ const Submit = () => {
           {/* 텍스트 나중 (오른쪽 정렬) */}
           <div className='card-text-area'>
             <h2 className='card-title'>택배 보내기</h2>
-            <p className='card-desc'>판매 및 기부를 하기 위한 상품을 보내주세요.</p>
+            <p className='card-desc'>판매 및 기부원하시는 상품 보내주세요.</p>
             <p className='card-sub-desc'>비대면 수거 요청 가능합니다.</p>
           </div>
         </div>

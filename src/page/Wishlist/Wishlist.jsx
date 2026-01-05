@@ -17,12 +17,7 @@ const Wishlist = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
-  // UI 상태
-  const [activeTab, setActiveTab] = useState('size');
-  const [selectedSizes, setSelectedSizes] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-
-  // 옵션 목록
+  // 옵션 목록 정의
   const categoryOptions = [
     { label: '상의', value: 'top' },
     { label: '하의', value: 'bottom' },
@@ -32,7 +27,10 @@ const Wishlist = () => {
   ];
   const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
-  // 검색 관련 상태
+  // UI 상태
+  const [activeTab, setActiveTab] = useState('size');
+  const [selectedSizes, setSelectedSizes] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [keyword, setKeyword] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const [recentSearches, setRecentSearches] = useState(() => {
@@ -106,18 +104,19 @@ const Wishlist = () => {
       );
     }
 
-    // 3. 사이즈 필터링 (수정 완료: 데이터 안전장치 추가)
+    // 3. 사이즈 필터링 (데이터 안전장치 적용)
     if (selectedSizes.length > 0) {
       currentList = currentList.filter((product) =>
         (product.options || []).some((option) => selectedSizes.includes(option))
       );
     }
 
-    // 4. 검색어 필터링
+    // 4. 검색어 필터링 (title 사용)
     if (keyword.trim()) {
       const query = keyword.trim().toLowerCase();
-      currentList = currentList.filter((product) =>
-        product.name.toLowerCase().includes(query)
+      currentList = currentList.filter(
+        (product) =>
+          product.title.toLowerCase().includes(query) /* name -> title */
       );
     }
 
@@ -208,7 +207,6 @@ const Wishlist = () => {
                   {activeTab === 'size' ? '사이즈 선택' : '카테고리 선택'}
                 </h4>
 
-                {/* 사이즈 탭 패널 */}
                 {activeTab === 'size' && (
                   <div className='checkbox-group'>
                     {sizeOptions.map((size) => (
@@ -225,7 +223,6 @@ const Wishlist = () => {
                   </div>
                 )}
 
-                {/* 카테고리 탭 패널 */}
                 {activeTab === 'category' && (
                   <div className='checkbox-group'>
                     {categoryOptions.map((option) => (
@@ -257,10 +254,14 @@ const Wishlist = () => {
                 {recentSearches.length > 0 ? (
                   <ul className='history-list'>
                     {recentSearches.map((word, idx) => (
-                      <li key={idx} className='history-item'>
+                      <li
+                        key={idx}
+                        onClick={() => handleHistoryClick(word)}
+                        className='history-item'
+                      >
                         <span
                           className='history-word'
-                          onClick={() => handleHistoryClick(word)}
+                          onClick={() => setKeyword(word)}
                         >
                           <IoTimeOutline className='time-icon' />
                           {word}
@@ -292,10 +293,10 @@ const Wishlist = () => {
                 <IoHeart className='icon-heart-fill' />
               </div>
               <div className='product-img-wrapper'>
-                <img src={product.img} alt={product.name} />
+                <img src={product.img} alt={product.title} />
               </div>
               <div className='product-info'>
-                <span className='product-name'>{product.name}</span>
+                <span className='product-name'>{product.title}</span>
                 <div className='product-sizes'>
                   {product.options?.join(', ')}
                 </div>

@@ -17,11 +17,11 @@ import pantsBlackImg from '../../assets/images/pants-black.png';
 import hoodieImg from '../../assets/images/hoodie.png';
 
 const Store = () => {
-  // 1. 초기 데이터
+  // 1. 초기 데이터 (name -> title)
   const initialData = [
     {
       id: 1,
-      name: '자켓(카키)',
+      title: '자켓(카키)' /* name -> title */,
       img: jacketImg,
       liked: false,
       category: 'outer',
@@ -29,7 +29,7 @@ const Store = () => {
     },
     {
       id: 2,
-      name: '벌룬핏 바지(베이지)',
+      title: '벌룬핏 바지(베이지)' /* name -> title */,
       img: pantsBeigeImg,
       liked: false,
       category: 'bottom',
@@ -37,7 +37,7 @@ const Store = () => {
     },
     {
       id: 3,
-      name: '벌룬핏 바지(블랙)',
+      title: '벌룬핏 바지(블랙)' /* name -> title */,
       img: pantsBlackImg,
       liked: false,
       category: 'bottom',
@@ -45,7 +45,7 @@ const Store = () => {
     },
     {
       id: 4,
-      name: '피그먼트 후드 집업',
+      title: '피그먼트 후드 집업' /* name -> title */,
       img: hoodieImg,
       liked: false,
       category: 'top',
@@ -99,18 +99,19 @@ const Store = () => {
       );
     }
 
-    // 2) 사이즈 필터링 (수정 완료: 데이터 안전장치 추가)
+    // 2) 사이즈 필터링
     if (selectedSizes.length > 0) {
       currentList = currentList.filter((product) =>
         (product.options || []).some((option) => selectedSizes.includes(option))
       );
     }
 
-    // 3) 검색어 필터링
+    // 3) 검색어 필터링 (title 사용)
     if (keyword.trim()) {
       const query = keyword.trim().toLowerCase();
-      currentList = currentList.filter((product) =>
-        product.name.toLowerCase().includes(query)
+      currentList = currentList.filter(
+        (product) =>
+          product.title.toLowerCase().includes(query) /* name -> title */
       );
     }
 
@@ -305,10 +306,10 @@ const Store = () => {
                 </div>
 
                 <div className='product-img-wrapper'>
-                  <img src={product.img} alt={product.name} />
+                  <img src={product.img} alt={product.title} />
                 </div>
                 <div className='product-info'>
-                  <span className='product-name'>{product.name}</span>
+                  <span className='product-name'>{product.title}</span>
                   <div className='product-sizes'>
                     {(product.options || []).join(', ')}
                   </div>
